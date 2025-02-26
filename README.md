@@ -31,5 +31,3 @@ Return = {
         "OPEN NAME YOU WANT" : "GOOGLE DOCS, DOCUMENT URL"
     }
 }```
-
-Then you need to create .env file, this file needs the following:
