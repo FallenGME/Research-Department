@@ -5,7 +5,7 @@ Firstly you need to go to Google Cloud Console to create a API key, then you nee
 with the following content:
 ```
 Return = {
-    "Token"PASTE YOUR TOKEN HERE"
+    "Token": "PASTE YOUR TOKEN HERE",
     "Guild": 1343641690472185888,
     "Test-Log-Channel": 1343641691399389278,
     "Rolebinds": {
@@ -27,9 +27,9 @@ Return = {
         "Level 5": [1343641756574416980],
         "OMNI": [1343641756574416980]
     },
-    "Documents": {}
+    "Documents": {
+        "OPEN NAME YOU WANT" : "GOOGLE DOCS, DOCUMENT URL"
+    }
 }```
 
 Then you need to create .env file, this file needs the following:
---> .Token
---> .
