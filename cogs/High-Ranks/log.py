@@ -2,7 +2,6 @@ from discord.ext import commands
 import discord
 import gspread
 from discord import app_commands
-import asyncio
 import datetime
 
 class TestLog(commands.Cog):
@@ -11,21 +10,18 @@ class TestLog(commands.Cog):
         self.Database: gspread.client.Client = bot.Database_Points
         self.Config = bot.config
 
-    @app_commands.command(name="log-test", description="Grants points to an existing user.")
-    async def testlog(self, interaction: discord.Interaction, SCP: str, Clipboard: discord.Attachment):
+    @app_commands.command(name="log_test", description="Grants points to an existing user.")
+    async def testlog(self, interaction: discord.Interaction, scp_name: str, clipboard_1: discord.Attachment = None, clipboard_2: discord.Attachment = None, clipboard_3: discord.Attachment = None, clipboard_4: discord.Attachment = None, clipboard_5: discord.Attachment = None):
         allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp']
         
-        if len(Clipboard) > 5:
-            await interaction.response.send_message("You can only attach up to 5 images.", ephemeral=True)
-            return
-
-        invalid_files = []
+        clipboards = [clipboard_1, clipboard_2, clipboard_3, clipboard_4, clipboard_5]
         valid_files = []
+        invalid_files = []
 
-        for file in Clipboard:
-            if file.filename.split('.')[-1].lower() in allowed_extensions:
+        for file in clipboards:
+            if file and file.filename.split('.')[-1].lower() in allowed_extensions:
                 valid_files.append(file)
-            else:
+            elif file:
                 invalid_files.append(file.filename)
 
         if invalid_files:
@@ -33,7 +29,7 @@ class TestLog(commands.Cog):
             return
 
         Embed = discord.Embed()
-        Embed.title = SCP + " Test Log"
+        Embed.title = scp_name + " Test Log"
         Embed.description = f"User: {interaction.user.name}#{interaction.user.discriminator}\nDate: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
         Guild: discord.Guild = self.bot.get_guild(self.Config["Guild"])
