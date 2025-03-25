@@ -33,4 +33,4 @@ async def load_cogs():
                 except Exception as e:
                     print(f"Failed to load {module_name}: {e}")
 
-bot.run("MTM0NDAwMzQzMjM0MzgwMTk0Nw.GmqWmT.fknswN2LfYYrpx3oY5rutaxEsa0xZqmg8pdlio")
+bot.run("PASTE YOUR TOKEN HERE")
