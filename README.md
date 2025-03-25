@@ -1,3 +1,4 @@
+**THIS SYSTEM WAS NOT REALLY MADE FOR PUPLIC USE, THEREFOR NO .env exists**
 # Research-Department
 
 How do I make this work?
